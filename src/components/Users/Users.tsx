@@ -8,7 +8,7 @@ const Users:FC<UserProps> = ({clikker}) => {
 
     useEffect(() => {
         getallusers()
-            .then(value => setUsers(value))
+            .then(value => setUsers(value.data))
     }, [])
 
 
