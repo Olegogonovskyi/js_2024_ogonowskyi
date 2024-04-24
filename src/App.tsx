@@ -4,7 +4,7 @@ import Users from "./components/Users/Users";
 
 
 const App: FC = () => {
-    const [userid, setuserid] = useState<number>(0)
+    const [userid, setuserid] = useState<number>()
     const clikker = (id:number) => {
       setuserid(id)
     }

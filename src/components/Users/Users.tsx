@@ -1,16 +1,13 @@
 import React, {FC, useEffect, useState} from 'react';
-import IUser from "../../models/IUser";
+import {IUser, UserProps} from "../../models/allmodels";
 import User from "../User/User";
+import {getallusers} from "../../services/users.api";
 
-interface Userprops {
-    clikker: (id:number) => void
-}
-const Users:FC<Userprops> = ({clikker}) => {
+const Users:FC<UserProps> = ({clikker}) => {
     let [users, setUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(value => value.json())
+        getallusers()
             .then(value => setUsers(value))
     }, [])
 
