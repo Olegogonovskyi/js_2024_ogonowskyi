@@ -12,4 +12,8 @@ interface Iuserpost {
     body: string;
 }
 
-export type { IUser, UserProps, Iuserpost };
+interface PostsProps {
+    userid: number;
+}
+
+export type { IUser, UserProps, Iuserpost, PostsProps};

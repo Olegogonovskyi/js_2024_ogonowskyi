@@ -7,7 +7,7 @@ const axiosPostapi = axios.create({
     headers: {'Content-type': 'application/json'},
 })
 
-const getPostbyuser = (id: number): Promise<AxiosResponse<Iuserpost[]>> => {
-    return axiosPostapi.get('users' + id + 'posts')
+const getPostbyuser = (userId: number): Promise<AxiosResponse<Iuserpost[]>> => {
+    return axiosPostapi.get('users/' + userId + '/posts')
 }
 export {getPostbyuser}

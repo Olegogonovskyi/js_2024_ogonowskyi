@@ -4,16 +4,18 @@ import Users from "./components/Users/Users";
 import Posts from "./components/Posts/Posts";
 
 
+
 const App: FC = () => {
-    const [userid, setuserid] = useState<number>()
-    const clikker = (id: number) => {
-        setuserid(id)
+    const [userid, setUserid] = useState<number>(0)
+    const clikker = (id:number) => {
+        setUserid(id)
     }
+
 
     return (
         <>
             <Users clikker={clikker}/>
-            {userid && <Posts userid={userid}/>}
+            {userid  && <Posts userid={userid} />}
     {/*{userid && <h1>{userid}</h1>}*/
     }
 
