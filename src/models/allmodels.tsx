@@ -7,4 +7,9 @@ interface UserProps {
     clikker: (id: number) => void;
 }
 
-export type { IUser, UserProps };
+interface Iuserpost {
+    title: string;
+    body: string;
+}
+
+export type { IUser, UserProps, Iuserpost };
