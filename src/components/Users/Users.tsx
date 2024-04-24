@@ -2,8 +2,10 @@ import React, {FC, useEffect, useState} from 'react';
 import IUser from "../../models/IUser";
 import User from "../User/User";
 
-
-const Users:FC = () => {
+interface Userprops {
+    clikker: (id:number) => void
+}
+const Users:FC<Userprops> = ({clikker}) => {
     let [users, setUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
@@ -16,7 +18,7 @@ const Users:FC = () => {
     return (
         <div>
             {
-                users.map(({id, name}) => <User key = {id} name = {name} id={id} />)
+                users.map(({id, name}) => <User key = {id} name = {name} id={id} clikker={clikker} />)
             }
         </div>
     );
