@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import './App.css';
+import Users from "./components/Users/Users";
 
 
 const App: FC = () => {
   return (
-      <div>
-        <h2>Oleg</h2>
-      </div>
+      <>
+        <Users/>
+      </>
   );
 };
 
