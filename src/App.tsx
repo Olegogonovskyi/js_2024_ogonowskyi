@@ -15,7 +15,7 @@ const App: FC = () => {
     return (
         <>
             <Users clikker={clikker}/>
-            {userid  && <Posts userid={userid} />}
+            {userid !== 0 && <Posts userid={userid} />}
     {/*{userid && <h1>{userid}</h1>}*/
     }
 
