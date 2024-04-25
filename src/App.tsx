@@ -1,7 +1,8 @@
 import React, {FC, useReducer} from 'react';
 import './App.css';
+import Test from "./Test";
 
-const redusActions = (state: number, action: {type: string, playload: number}) => {
+const redusActions = (state: number, action: {type: string}) => {
   switch (action.type) {
       case 'add':
           return ++state;
@@ -18,13 +19,13 @@ const App: FC = () => {
     const [number, dispatch] = useReducer(redusActions, 0);
 
     const add = () => {
-      dispatch({type: 'add', playload:0});
+      dispatch({type: 'add'});
     }
     const minus = () => {
-        dispatch({type: 'minus', playload:0});
+        dispatch({type: 'minus'});
     }
     const reset = () => {
-        dispatch({type: 'reset', playload:0});
+        dispatch({type: 'reset'});
     }
 
 
@@ -34,6 +35,8 @@ const App: FC = () => {
           <button onClick={add}>add</button>
           <button onClick={minus}>minus</button>
           <button onClick={reset}>reset</button>
+
+          <Test/>
       </div>
   );
 };
