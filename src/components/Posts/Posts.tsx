@@ -3,6 +3,7 @@ import IpostsProps from "../../models/PpostsProps";
 import IPostModel from "../../models/postModel";
 import getpostbyUser from "../../servises/posts.api";
 import Post from "../Post/Post";
+import Newhtwo from "../../hoc/newh2";
 
 const Posts: FC<IpostsProps> = ({id}) => {
     const [posts, setPosts] = useState<IPostModel[]>([]);
@@ -21,4 +22,8 @@ const Posts: FC<IpostsProps> = ({id}) => {
     );
 };
 
-export default Posts
+
+// export default Posts;
+
+
+export default Newhtwo(Posts)
