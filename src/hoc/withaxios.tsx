@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {AxiosResponse} from "axios";
 
-const Withaxios = (Component:FC<any>, axiosins: () => Promise<AxiosResponse<any>>) => {
+const Withaxios = (Component:FC<any>, axiosins: () => Promise<AxiosResponse<any[]>>) => {
 
 
     const WithAxiosComponent = (props:any) => {

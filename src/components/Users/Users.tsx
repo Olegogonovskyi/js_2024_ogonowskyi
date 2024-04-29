@@ -9,8 +9,7 @@ const Users:FC<IUserProps> = memo(({hendler}) => {
     const [users, setUsers] = useState<IUsermodel[]>([])
     useEffect(() => {
         getallusers().then(value => setUsers(value.data))
-        console.log('kdkdkddkdk')
-    }, [])
+            }, [])
 
     return (
         <div>
