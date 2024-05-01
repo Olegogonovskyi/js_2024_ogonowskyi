@@ -1,13 +1,13 @@
 import React, {FC, useEffect, useState} from 'react';
 import Iproductmodel from "../../models/Iproductmodel";
-// import getallProducts from "../../services/products.api";
+import getallProducts from "../../services/products.api";
 import Product from "../Product/product";
 
 const Products: FC = () => {
     const [products, setProducts] = useState<Iproductmodel[]>([])
     useEffect(() => {
-        fetch('https://dummyjson.com/products').then(value => value.json()).then(({products}) => setProducts(products))
-        // getallProducts().then(value => )
+        // fetch('https://dummyjson.com/products').then(value => value.json()).then(({products}) => setProducts(products))
+        getallProducts().then(value => console.log(value.data))
 
 
     }, [])
