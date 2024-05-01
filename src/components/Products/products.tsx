@@ -7,7 +7,9 @@ const Products: FC = () => {
     const [products, setProducts] = useState<Iproductmodel[]>([])
     useEffect(() => {
         // fetch('https://dummyjson.com/products').then(value => value.json()).then(({products}) => setProducts(products))
-        getallProducts().then(value => console.log(value.data))
+        // getallProducts().then(({data}) => console.log(data)
+        getallProducts().then(value => setProducts(value.data.products))
+
 
 
     }, [])

@@ -1,14 +1,21 @@
 import React, {FC} from 'react';
 import './App.css';
-import Products from './components/Products/products';
+
+import {Link, Outlet} from "react-router-dom";
 
 
 const App: FC = () => {
     return (
         <div>
-            <Products/>
+            <ul>
+                <li><Link to={'/'}> App </Link></li>
+                <li><Link to={'users'}> Users </Link></li>
+                <li><Link to={'products'}> Products </Link></li>
+            </ul>
+
+            <Outlet/>
         </div>
-);
+    );
 };
 
 export default App;

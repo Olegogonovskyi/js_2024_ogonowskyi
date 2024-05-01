@@ -3,15 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {RouterProvider} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Users from "./components/Users/Users";
+import Products from "./components/Products/products";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const routes = createBrowserRouter([
+    {
+        path: '/',
+        element: <App/>,
+        children: [
+            {path: 'users', element: <Users/>},
+            {path: 'products', element: <Products/>}
+        ]
+    }
+])
+
 root.render(
 
-    // <RouterProvider router={routes}/>
-    <App/>
+    <RouterProvider router={routes}/>
+    // <App/>
 
 );
 

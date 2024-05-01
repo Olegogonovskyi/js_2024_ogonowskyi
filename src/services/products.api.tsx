@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from "axios";
-import Iproductmodel from "../models/Iproductmodel";
+
 
 const baseurlproducts = 'https://dummyjson.com'
 
@@ -8,7 +8,7 @@ const axiosproductsinstance = axios.create({
     headers: {'Content-Type': 'application/json'},
 })
 
-const getallProducts = (): Promise<AxiosResponse<Iproductmodel[]>> => {
+const getallProducts = (): Promise<AxiosResponse<any>> => {
     return axiosproductsinstance.get('/products')
 }
 
