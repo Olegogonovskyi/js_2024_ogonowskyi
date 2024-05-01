@@ -1,0 +1,8 @@
+.widthblock {
+    width: 50vw;
+}
+
+.flexblocks {
+    display: flex;
+    flex-direction: row;
+}
