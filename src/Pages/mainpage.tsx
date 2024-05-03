@@ -8,9 +8,10 @@ const Mainpage:FC = () => {
                 <li><Link to={'/'}>Main</Link></li>
                 <li><Link to={'/users'}>Users</Link></li>
                 <li><Link to={'/posts'}>Posts</Link></li>
+
             </ul>
 
-<Outlet/>
+            <Outlet/>
         </div>
     );
 };

@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Mainpage from "./Pages/mainpage";
-import Users from "./Pages/Users/Users";
-import Posts from "./Pages/Posts/Posts";
+import UsersPage from "./Pages/UsersPage";
+import PostsPage from "./Pages/PostsPage";
+import UserPost from "./Pages/UserPost/UserPost";
+import UserPosts from "./Pages/UserPosts/UserPosts";
+import Userposts from "./Pages/Userposts";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -19,11 +21,15 @@ const routes = createBrowserRouter([
         children: [
             {
                 path: '/users',
-                element: <Users/>
+                element: <UsersPage/>
             },
             {
                 path: '/posts',
-                element: <Posts/>
+                element: <PostsPage/>
+            },
+            {
+                path: '/userpost',
+                element: <Userposts/>
             }
         ]
     }
