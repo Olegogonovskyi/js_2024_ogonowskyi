@@ -5,11 +5,7 @@ import {useToggle} from "./custom hooks/useToggle";
 
 
 const App: FC = () => {
-    let [value,toggleValue] = useToggle(true);
 
-
-    toggleValue(false);
-    console.log(value)
 
   return (
       <div>
