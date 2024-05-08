@@ -1,6 +1,6 @@
 import {useRef} from "react";
 
-const usePrevious = <T, >(value: T): T |  undefined => {
+export const usePrevious = <T, >(value: T): T |  undefined => {
   let curentValue = useRef<T>(value)
     let priviosValue = useRef<T |  undefined>()
 
