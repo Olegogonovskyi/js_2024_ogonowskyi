@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export const useLocalStorage = <T,>(key: string, defautObject: any ) => {
 
@@ -7,6 +7,15 @@ export const useLocalStorage = <T,>(key: string, defautObject: any ) => {
         return item ? JSON.parse(item) : defautObject;
     })
 
-    return [storageObj, setstorageObj]
+    useEffect(() => {
+        localStorage.setItem(key, JSON.stringify(storageObj));
+    }, [key, defautObject, storageObj]);
+
+    const clearStorage = () => {
+        localStorage.removeItem(key);
+        setstorageObj(defautObject);
+    };
+
+    return [storageObj, setstorageObj, clearStorage]
 
 }
