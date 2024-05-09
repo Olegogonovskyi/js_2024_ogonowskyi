@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import {ICardProps} from "../../models/ICardmodelwrap";
+import {ISingleCartProductsWrap} from "../../models/ISingleCartProductsWrap";
 
-
-const Cardcomp:FC<ICardProps> = ({card, choseProducts}) => {
+type IcardPropss<T> = T & {choseProducts: (products:ISingleCartProductsWrap) => void}
+const Cardcomp:FC<IcardPropss<ICardProps>> = ({card, choseProducts}) => {
     return (
         <div>
             <h2>{card.id}: summary: {card.total} total products - {card.totalProducts}</h2>
-            <button onClick={() => choseProducts(card.id)}> see products </button>
+            <button onClick={() => choseProducts(card.products)}> see products </button>
         </div>
     );
 };

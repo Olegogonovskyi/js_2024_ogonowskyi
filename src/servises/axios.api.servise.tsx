@@ -12,4 +12,6 @@ const getAllCards = (): Promise<AxiosResponse<ICardsmodelwrap>> => {
   return axiosinstanse.get('/carts')
 }
 
+
+
 export default getAllCards
