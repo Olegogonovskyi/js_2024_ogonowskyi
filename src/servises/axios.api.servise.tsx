@@ -9,9 +9,8 @@ const axiosinstanse = axios.create({
 })
 
 const getAllCards = (): Promise<AxiosResponse<ICardsmodelwrap>> => {
-  return axiosinstanse.get('/carts')
+    return axiosinstanse.get('/carts')
 }
-
 
 
 export default getAllCards

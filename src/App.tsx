@@ -1,15 +1,16 @@
 import React, {FC, useState} from 'react';
 import './App.css';
 import Cardscomp from "./Components/Cards comp/Cardscomp";
+import {ISingleCartProducts} from "./models/ISingleCartProducts";
 import Productscomp from "./Components/Products comp/Productscomp";
-import {ISingleCartProductsWrap} from "./models/ISingleCartProductsWrap";
 
 
 const App: FC = () => {
-    const [singlecard, setsinglecard] = useState<ISingleCartProductsWrap | undefined>(undefined)
-    const choseProducts = (choseProducts: ISingleCartProductsWrap) => {
+    const [singlecard, setsinglecard] = useState<ISingleCartProducts[]>([])
+    const choseProducts = (choseProducts: ISingleCartProducts[]) => {
         setsinglecard(choseProducts)
     }
+    console.log(singlecard)
 
     return (
         <div>

@@ -3,11 +3,12 @@ import {ICardmodelbase} from "../../models/ICardmodelbase";
 import getAllCards from "../../servises/axios.api.servise";
 import Cardcomp from "../Card comp/Cardcomp";
 import {ISingleCartProducts} from "../../models/ISingleCartProducts";
-import {ISingleCartProductsWrap} from "../../models/ISingleCartProductsWrap";
+
 
 interface ICardsProps {
-    choseProducts: (choseProducts:ISingleCartProductsWrap) => void
+    choseProducts: (choseProducts: ISingleCartProducts[]) => void
 }
+
 const Cardscomp: FC<ICardsProps> = ({choseProducts}) => {
     const [cards, setCards] = useState<ICardmodelbase[]>([])
     useEffect(() => {
