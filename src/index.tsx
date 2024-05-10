@@ -3,13 +3,36 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Mainpage from "./Pages/Mainpage";
+import RecepiesPage from "./Pages/Recepies_page";
+import CardsPage from "./Pages/Cards_page";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const routes = createBrowserRouter([
+    {
+        path: '/',
+        element: <Mainpage/>,
+        children: [
+            {
+                path: '/recepies',
+                element: <RecepiesPage/>
+            },
+            {
+                path: '/cards',
+                element: <CardsPage/>
+            }
+        ]
+    }
+])
+
 root.render(
 
-    <App />
+    <RouterProvider router={routes}/>
+    // <App />
 
 );
 
