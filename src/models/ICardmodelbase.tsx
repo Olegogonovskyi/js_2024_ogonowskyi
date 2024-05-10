@@ -1,5 +1,4 @@
 import {ISingleCartProducts} from "./ISingleCartProducts";
-import {ISingleCartProductsWrap} from "./ISingleCartProductsWrap";
 
 
 export interface ICardmodelbase {
