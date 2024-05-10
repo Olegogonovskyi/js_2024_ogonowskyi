@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {Link, Outlet} from "react-router-dom";
 
 const Mainpage: FC = () => {
+    console.log('Mainpage')
     return (
         <div>
             <ul>

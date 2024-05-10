@@ -7,6 +7,7 @@ interface IRecipescompProps {
    items:  IrecipebaseWrap
 }
 const Recipescomp: FC<IRecipescompProps> = ({items}) => {
+    console.log('Recipescomp')
     return (
         <div>
             {

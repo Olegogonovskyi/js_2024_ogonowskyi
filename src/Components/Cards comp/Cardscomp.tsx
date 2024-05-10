@@ -15,7 +15,7 @@ const Cardscomp: FC<ICardsProps> = ({choseProducts}) => {
         getAllCards().then(({data}) => setCards(data.carts))
     }, []);
 
-
+console.log('Cardscomp')
     return (
         <div>
             {

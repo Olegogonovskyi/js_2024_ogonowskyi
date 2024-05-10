@@ -9,6 +9,7 @@ const App: FC = () => {
     const choseProducts = (choseProducts: ISingleCartProducts[]) => {
         setsinglecard(choseProducts)
     }
+    console.log('App')
     return (
         <div>
 

@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {ISingleCartProducts} from "../../models/ISingleCartProducts";
 
 const Productcomp: FC<ISingleCartProducts> = ({id, quantity, price, title, total, thumbnail}) => {
+    console.log('Productcomp')
     return (
         <div>
 

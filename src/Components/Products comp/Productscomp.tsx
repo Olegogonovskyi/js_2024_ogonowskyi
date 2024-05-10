@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import {ISingleCartProductsWrap} from "../../models/ISingleCartProductsWrap";
 import Productcomp from "../Product component/Productcomp";
 
-const Productscomp: FC<ISingleCartProductsWrap> = ({products}) => {
-
+const Productscomp: FC<ISingleCartProductsWrap> = memo(({products}) => {
+    console.log('Productscomp')
     return (
         <div>
             {
@@ -14,6 +14,7 @@ const Productscomp: FC<ISingleCartProductsWrap> = ({products}) => {
 
         </div>
     );
-};
+}
+)
 
 export default Productscomp;
