@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ICardmodelbase} from "../../models/ICardmodelbase";
-import getAllCards from "../../servises/axios.api.servise";
+import {getAllCards} from "../../servises/axios.api.servise";
 import Cardcomp from "../Card comp/Cardcomp";
 import {ISingleCartProducts} from "../../models/ISingleCartProducts";
 
