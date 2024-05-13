@@ -8,6 +8,7 @@ import Mainpage from "./Pages/Mainpage";
 import RecepiesPage from "./Pages/Recepies_page";
 import CardsPage from "./Pages/Cards_page";
 import Formcomp from "./Components/Form Component/Formcomp";
+import FormOnePage from "./Pages/FormOnePage";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -28,7 +29,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/form',
-                element: <Formcomp/>
+                element: <FormOnePage/>
             }
         ]
     }
