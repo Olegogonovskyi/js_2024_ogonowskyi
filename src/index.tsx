@@ -7,6 +7,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Mainpage from "./Pages/Mainpage";
 import RecepiesPage from "./Pages/Recepies_page";
 import CardsPage from "./Pages/Cards_page";
+import Formcomp from "./Components/Form Component/Formcomp";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
             {
                 path: '/cards',
                 element: <CardsPage/>
+            },
+            {
+                path: '/form',
+                element: <Formcomp/>
             }
         ]
     }

@@ -9,6 +9,7 @@ const Mainpage: FC = () => {
                 <li><Link to={'/'}>Main Page</Link></li>
                 <li><Link to={'/recepies'}>Recepies</Link></li>
                 <li><Link to={'/cards'}>Cards</Link></li>
+                <li><Link to={'/form'}>Forms</Link></li>
             </ul>
 
             <Outlet/>
