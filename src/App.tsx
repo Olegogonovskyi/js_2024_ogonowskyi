@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import './App.css';
+import Formcomponent from "./components/Formcomponent";
 
 
 
 const App: FC = () => {
   return (
       <div>
-        hello
+        <Formcomponent/>
       </div>
   );
 };
