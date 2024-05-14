@@ -1,15 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import MainLayout from "./Pages/mainLayout";
+import UserDetailPage from "./Pages/UserDetailPage";
+import UsersPage from "./Pages/UsersPage";
+import UsersDummyPage from "./Pages/UsersDummy Page";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+
+const routes = createBrowserRouter([
+    {
+        path: '/',
+        element: <MainLayout/>,
+        children: [
+            {
+                path: '/users',
+                element: <UsersPage/>
+            },
+            {
+                path: '/users/:id',
+                element: <UserDetailPage/>
+            },
+            {
+                path: '/dummy-users',
+                element: <UsersDummyPage/>
+            },
+            {
+            {
+                path: '/dummy-users/:id',
+                element: <UserDummyDetailPage/>
+            }
+            }
+        ]
+    }
+])
 root.render(
 
-    <App />
+    <RouterProvider router={routes} />
 
 );
 

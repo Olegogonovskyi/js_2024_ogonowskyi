@@ -1,4 +1,6 @@
 import axios, {AxiosResponse} from "axios";
+import {IUsersModelWrap} from "../../models/Jsonplaceholder models/IUsesrModelWrap";
+import {IUserFullModel} from "../../models/Jsonplaceholder models/IUserFullModel";
 
 const baseUrl = 'https://jsonplaceholder.typicode.com/'
 
@@ -8,7 +10,7 @@ const axiosJsonPlaceholderInstatce = axios.create({
 })
 
 
-const getAllUsersJson = (): Promise<AxiosResponse<any>> => {
+const getAllUsersJson = (): Promise<AxiosResponse<IUserFullModel[]>> => {
   return axiosJsonPlaceholderInstatce.get('/users')
 }
 
