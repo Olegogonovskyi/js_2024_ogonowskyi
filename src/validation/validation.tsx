@@ -1,26 +1,28 @@
 import Joi from "joi";
 
 export const validationUser = Joi.object({
-    name:
+    title:
         Joi.string()
-            .pattern(/^[A-Z][a-zA-Z]{0,14} [A-Z][a-zA-Z]{0,14}$/)
+            .pattern(/^[a-zA-Z]{1,15}(?: [a-zA-Z]{1,15})+$/)
             .required()
             .messages({
-                "string.pattern.base": "All words must begin with a capital letter and in English"
+                "string.pattern.base": "Enter only words without numbers in the field"
             }),
-    username:
+    body:
         Joi.string()
-            .pattern(/^[A-Z][a-zA-Z]{0,14}$/)
+            .pattern(/^[a-zA-Z]{1,15}(?: [a-zA-Z]{1,15})+$/)
             .required()
             .messages({
-                "string.pattern.base": "Word must begin with a capital letter. It must be only one word"
+                "string.pattern.base": "Enter only words without numbers in the field"
             }),
-    email:
-        Joi.string()
-            .pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
-    .required()
-    .messages({
-        "string.pattern.base": "Word must contain with '@' and domenname from two or more letters "
-    })
+    userId:
+        Joi.number()
+            .min(1)
+            .max(10)
+            .required()
+            .messages({
+                "number.min":"number must be more then 0",
+                "number.max":"number must be less then 10"
+            })
 
 })
