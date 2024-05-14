@@ -8,6 +8,7 @@ import UserDetailPage from "./Pages/UserDetailPage";
 import UsersPage from "./Pages/UsersPage";
 import UsersDummyPage from "./Pages/UsersDummy Page";
 import UserDummyDetailPage from "./Pages/UserDummyDetailPage";
+import FormOnePage from "./Pages/formOnePage";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
                 path: '/dummy-users/:id',
                 element: <UserDummyDetailPage/>
 
+            },
+            {
+                path:'/formone',
+                element: <FormOnePage/>
             }
         ]
     }
