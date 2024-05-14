@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import UserDummyDetailComp from "../components/Dummy componn/UserDummyDetailComp";
 
 const UserDummyDetailPage: FC = () => {
     return (

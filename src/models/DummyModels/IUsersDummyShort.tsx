@@ -3,5 +3,6 @@ export interface IUsersDummyShort {
     firstName: string,
     lastName: string,
     age: number,
-    gender: string
+    gender: string,
+    image: string
 }

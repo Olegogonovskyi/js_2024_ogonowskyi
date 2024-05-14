@@ -7,9 +7,10 @@ import MainLayout from "./Pages/mainLayout";
 import UserDetailPage from "./Pages/UserDetailPage";
 import UsersPage from "./Pages/UsersPage";
 import UsersDummyPage from "./Pages/UsersDummy Page";
+import UserDummyDetailPage from "./Pages/UserDummyDetailPage";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 
 
@@ -31,18 +32,15 @@ const routes = createBrowserRouter([
                 element: <UsersDummyPage/>
             },
             {
-            {
                 path: '/dummy-users/:id',
                 element: <UserDummyDetailPage/>
-            }
+
             }
         ]
     }
 ])
 root.render(
-
-    <RouterProvider router={routes} />
-
+    <RouterProvider router={routes}/>
 );
 
 // If you want to start measuring performance in your app, pass a function
