@@ -16,11 +16,11 @@ const routes = createBrowserRouter([{
     element: <MainLayout/>,
     children: [
         {
-            path: '/usersjson',
+            path: 'usersjson',
             element: <UsersJsonPage/>
         },
         {
-            path: '/usersjson/:id',
+            path: 'usersjson/:id',
             element: <UserJsonDetailPage/>
         }
     ]
