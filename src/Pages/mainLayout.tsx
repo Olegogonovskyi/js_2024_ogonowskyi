@@ -9,6 +9,7 @@ const MainLayout:FC = () => {
                 <li><NavLink to={'/users'}>Users</NavLink></li>
                 <li><NavLink to={'/dummy-users'}>Users Dummy</NavLink></li>
                 <li><NavLink to={'/formone'}>Form One</NavLink></li>
+                <li><NavLink to={'/formtwo'}>Form two</NavLink></li>
 
             </ul>
 

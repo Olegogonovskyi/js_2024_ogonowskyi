@@ -9,6 +9,7 @@ import UsersPage from "./Pages/UsersPage";
 import UsersDummyPage from "./Pages/UsersDummy Page";
 import UserDummyDetailPage from "./Pages/UserDummyDetailPage";
 import FormOnePage from "./Pages/formOnePage";
+import FormTwoPage from "./Pages/FormTwoPage";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -40,6 +41,10 @@ const routes = createBrowserRouter([
             {
                 path:'/formone',
                 element: <FormOnePage/>
+            },
+            {
+                path: '/formtwo',
+                element: <FormTwoPage/>
             }
         ]
     }
