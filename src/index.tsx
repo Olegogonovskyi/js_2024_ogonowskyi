@@ -1,15 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import UsersJsonPage from "./Pages/UsersJsonPage";
+import MainLayout from "./Pages/MainLayout";
+import UserJsonDetailPage from "./Pages/UserJsonDetailPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const routes = createBrowserRouter([{
+    path: '/',
+    element: <MainLayout/>,
+    children: [
+        {
+            path: '/usersjson',
+            element: <UsersJsonPage/>
+        },
+        {
+            path: '/usersjson/:id',
+            element: <UserJsonDetailPage/>
+        }
+    ]
+}])
 root.render(
 
-    <App />
+    <RouterProvider router={routes}/>
 
 );
 
