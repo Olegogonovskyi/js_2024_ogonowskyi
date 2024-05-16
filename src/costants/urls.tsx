@@ -4,7 +4,12 @@ const urlsJson = {
     users: {
         allUsers: '/users'
     },
-    posts: '/posts'
+    posts: {
+        allPosts: '/posts'
+    },
+    comments: {
+        allComments: '/comments'
+    }
 }
 
 export {
