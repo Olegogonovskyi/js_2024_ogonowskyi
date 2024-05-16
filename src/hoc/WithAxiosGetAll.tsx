@@ -5,7 +5,7 @@ export const WithAxiosGetAll = (Component: FC<any>, axiosInstanse: () => Promise
 
     const WithAxiosGetAllComponent = (props: any) => {
 
-        const [items, setItems] = useState<any>()
+        const [items, setItems] = useState<any>([])
         useEffect(() => {
             axiosInstanse().then(value => setItems(value.data))
         }, []);

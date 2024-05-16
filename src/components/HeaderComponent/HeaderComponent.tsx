@@ -6,6 +6,7 @@ const HeaderComponent:FC = () => {
         <div>
             <ul>
                 <li><NavLink to={'/'}>Home Page</NavLink></li>
+                <li><NavLink to={'users'}>Users Page</NavLink></li>
             </ul>
         </div>
     );
