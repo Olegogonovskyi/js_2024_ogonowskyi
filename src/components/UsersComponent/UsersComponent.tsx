@@ -4,10 +4,10 @@ import axiosService from "../../services/axios.api.service";
 import {IUserbasicmodel} from "../../models/IUserbasicmodel";
 import UserComponent from "../UserComponent/UserComponent";
 
-const UsersComponent:FC<{items: IUserbasicmodel []}> = ({items}) => {
-      return (
+const UsersComponent: FC<{ items: IUserbasicmodel [] }> = ({items}) => {
+    return (
         <div>
-            {items && items.map(user => <UserComponent key={user.id} user={user} /> )}
+            {items && items.map(user => <UserComponent key={user.id} user={user}/>)}
         </div>
     );
 };

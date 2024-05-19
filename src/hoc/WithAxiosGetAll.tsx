@@ -10,7 +10,7 @@ export const WithAxiosGetAll = (Component: FC<any>, axiosInstanse: () => Promise
             axiosInstanse().then(value => setItems(value.data))
         }, []);
 
-        return <Component items = {items} {...props}/>
+        return <Component items={items} {...props}/>
     }
     return WithAxiosGetAllComponent
 };

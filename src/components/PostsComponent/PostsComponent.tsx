@@ -5,10 +5,10 @@ import axiosService from "../../services/axios.api.service";
 import PostComponent from "../PostComponent/PostComponent";
 
 
-const PostsComponent: FC<{items: IPostbasicModel[]}> = ({items}) => {
+const PostsComponent: FC<{ items: IPostbasicModel[] }> = ({items}) => {
     return (
         <div>
-            {items && items.map(post => <PostComponent key={post.id} post={post} /> )}
+            {items && items.map(post => <PostComponent key={post.id} post={post}/>)}
         </div>
     );
 };

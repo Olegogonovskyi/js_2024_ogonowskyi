@@ -18,7 +18,14 @@ const axiosService = {
     },
     getAllComments: (): Promise<AxiosResponse<ICommentsbasicModel[]>> => {
         return axiosInstanse.get(urlsJson.comments.allComments)
+    },
+    getPostByUserId: (id: string): Promise<AxiosResponse<IPostbasicModel[]>> => {
+        return axiosInstanse.get(`${urlsJson.users.allUsers}/${id}/${urlsJson.posts.allPosts}`)
+    },
+    getCommentsByPostId: (id: string): Promise<AxiosResponse<IPostbasicModel[]>> => {
+        return axiosInstanse.get(`${urlsJson.posts.allPosts}/${id}/${urlsJson.comments.allComments}`)
     }
-    };
+};
+
 
 export default axiosService;

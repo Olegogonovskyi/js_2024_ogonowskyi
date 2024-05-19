@@ -6,6 +6,8 @@ import React from "react";
 import CommemtsPage from "../Pages/CommemtsPage/CommemtsPage";
 import MainPage from "../Pages/MainPage/MainPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import UserPosts from "../Pages/UserPosts/UserPosts";
+import CommentsofPostPage from "../Pages/CommentsofPostPage/CommentsofPostPage";
 
 export const route = createBrowserRouter([
     {
@@ -19,11 +21,23 @@ export const route = createBrowserRouter([
             },
             {
                 path: 'users',
-                element: <UsersPage/>
+                element: <UsersPage/>,
+                children: [
+                    {
+                        path: ':id/posts',
+                        element: <UserPosts/>
+                    }
+                ]
             },
             {
                 path: 'posts',
-                element: <PostsPage/>
+                element: <PostsPage/>,
+                children: [
+                    {
+                        path: ':id/comments',
+                        element: <CommentsofPostPage/>
+                    }
+                ]
             },
             {
                 path: 'comments',
