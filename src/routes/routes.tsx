@@ -7,6 +7,7 @@ import CommemtsPage from "../Pages/CommemtsPage/CommemtsPage";
 import MainPage from "../Pages/MainPage/MainPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import UserDetailPage from "../Pages/UserDetailPage/UserDetailPage";
+import ProwidePage from "../Pages/ProwidePage/ProwidePage";
 
 export const route = createBrowserRouter([
     {
@@ -33,6 +34,11 @@ export const route = createBrowserRouter([
             {
                 path: 'comments',
                 element: <CommemtsPage/>
+            },
+            {
+                path: 'prowtest',
+                element: <ProwidePage/>
+
             }
         ]
     }

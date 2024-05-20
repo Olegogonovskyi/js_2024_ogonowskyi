@@ -20,7 +20,9 @@
     "sort": "^0.0.3",
     "localforage": "^1.10.0",
     "by": "^0.2.3",
-    "match-sorter": "^6.3.4"
+    "match-sorter": "^6.3.4",
+    "@reduxjs/toolkit": "^2.2.5",
+    "react-redux": "^9.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
