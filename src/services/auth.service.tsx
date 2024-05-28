@@ -9,11 +9,15 @@ const  authService = {
         try {
             const response = await axiosInstance.post<ITokenRefresh>(authUrls.auth, authUsersData)
             localStorage.setItem(tokenKey, JSON.stringify(response.data))
-            console.log(response)
+
         } catch (e) {
             console.log(e)
         }
 
+    },
+    authRefresh: async (refreshToken: string)=> {
+       const response = await axiosInstance.post<ITokenRefresh>(authUrls.refresh, {refresh: refreshToken})
+        localStorage.setItem(tokenKey, JSON.stringify(response.data))
     }
 }
 
