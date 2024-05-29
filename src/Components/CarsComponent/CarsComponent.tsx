@@ -7,7 +7,10 @@ const CarsComponent:FC = () => {
     const [cars, setCars] = useState<ICarWithAuth[]>()
 
     useEffect(() => {
-        carsService.getCars().then(value => setCars(value.items))
+        carsService.getCars().then(value => {
+            if (value)
+            setCars(value.items)
+        })
     }, []);
     return (
         <div>

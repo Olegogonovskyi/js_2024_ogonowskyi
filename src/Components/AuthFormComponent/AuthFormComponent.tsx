@@ -7,7 +7,7 @@ const AuthFormComponent: FC = () => {
     const {register, handleSubmit} = useForm<ITokenObtainPair>()
 const sendUserData =  async (userFormData: ITokenObtainPair) => {
     await authService.authUser(userFormData)
-    console.log(userFormData)
+
 }
     return (
         <div>
