@@ -21,7 +21,7 @@ const LoginFormComponent: FC = () => {
     return (
         <div>
             {
-                error && <h1>Ти певно пяний?</h1>
+                error && <h1>Ти певно пяний, скільки бачиш перед собою статусів 401??</h1>
             }
             <form onSubmit={handleSubmit(sendUserData)}>
                 <input type="text" {...register('username')}/>

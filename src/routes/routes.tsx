@@ -4,7 +4,8 @@ import LoginPage from "../Pages/LoginPage/LoginPage";
 import CarsPage from "../Pages/CarsPage/CarsPage";
 
 export const routes = createBrowserRouter([
-    {path: '/', element: <Mainlayout/>, children: [
+    {
+        path: '/', element: <Mainlayout/>, children: [
             {
                 index: true,
                 element: <LoginPage/>
@@ -13,5 +14,6 @@ export const routes = createBrowserRouter([
                 path: '/cars',
                 element: <CarsPage/>
             }
-        ]}
+        ]
+    }
 ])
