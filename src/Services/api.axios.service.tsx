@@ -8,9 +8,9 @@ const axiosInstance = axios.create({baseURL: basicUrl})
 
 axiosInstance.interceptors.request.use(request => {
     if (localStorage.getItem(tokenKey) && request.url !== authUrls.authRefresh)
-request.headers.set('Authorization', 'Bearer ' + HelperCarsToken<ITokenRefresh>(tokenKey).access)
+        request.headers.set('Authorization', 'Bearer ' + HelperCarsToken<ITokenRefresh>(tokenKey).access)
 
-   return request
+    return request
 })
 
 export {

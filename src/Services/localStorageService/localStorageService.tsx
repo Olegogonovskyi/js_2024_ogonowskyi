@@ -8,7 +8,7 @@ const LocalStorageService = {
             return {};
         }
         return JSON.parse(storageData);
-            }
+    }
 }
 
 export {

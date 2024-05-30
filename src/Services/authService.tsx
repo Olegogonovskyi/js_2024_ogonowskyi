@@ -3,6 +3,7 @@ import {axiosInstance} from "./api.axios.service";
 import {authUrls} from "./Urls/urls";
 import {LocalStorageService} from "./localStorageService/localStorageService";
 import {tokenKey} from "./constants/constants";
+import {ITokenRefresh} from "../Models/ITokenRefresh/ITokenRefresh";
 
 const authService = {
     authLogin: async (loginData: ITokenObtainPairModel) => {
@@ -18,6 +19,11 @@ const authService = {
             return false
         }
 
+    },
+    authRefr: async (refrToken: string): Promise<ITokenRefresh> => {
+        const response = await axiosInstance.post(authUrls.authRefresh, {refresh: refrToken})
+        LocalStorageService.setByKey(tokenKey, response.data)
+        return response.data
     }
 }
 
