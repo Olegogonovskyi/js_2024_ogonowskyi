@@ -36,7 +36,7 @@ const CarsComponent: FC = () => {
             {
                 carsResp.items.map((car, index) => <CarComponent car={car} key={index}/>)
             }
-            <ButtonsComponent setterPage={setterPage}  key={1}/>
+            <ButtonsComponent setterPage={setterPage} prev={carsResp.prev} next={carsResp.next} key={1}/>
         </div>
     );
 };

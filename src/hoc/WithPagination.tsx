@@ -27,14 +27,18 @@ export const WithPagination = (Component: FC<any>, axiosService: (page: string) 
         return <div>
             <h1>hocPaginated</h1>
             <Component items={itemPaginationResp.items} {...props}/>
-            <button onClick={() => {
-                setterPage('prev')
-            }}>prev Page
-            </button>
-            <button onClick={() => {
-                setterPage('next')
-            }}>next Page
-            </button>
+            <div>
+
+                <button disabled={!itemPaginationResp.prev} onClick={() => {
+                    setterPage('prev')
+                }}>prev
+                </button>
+                <button disabled={!itemPaginationResp.next} onClick={() => {
+                    setterPage('next')
+                }}>next
+                </button>
+
+            </div>
         </div>
     }
 

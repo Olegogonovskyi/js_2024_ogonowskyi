@@ -1,12 +1,18 @@
 import React, {FC} from 'react';
+import {IGetCarResponseModel} from "../../Models/IGetCarResponseModel";
+interface IProps {
+    setterPage: (page: string)=> void,
+    prev: IGetCarResponseModel | null,
+    next: IGetCarResponseModel | null
+}
 
-const ButtonsComponent: FC<{setterPage: (page: string)=> void}> = ({setterPage}) => {
+const ButtonsComponent: FC<IProps> = ({setterPage, prev, next}) => {
     return (
         <div>
-            <button onClick={()=> {
+            <button disabled={!prev} onClick={()=> {
                 setterPage('prev')
             }}>prev</button>
-            <button onClick={()=> {
+            <button disabled={!next} onClick={()=> {
                 setterPage('next')
             }}>next</button>
 
