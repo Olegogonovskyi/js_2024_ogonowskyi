@@ -1,17 +1,12 @@
 import React, {FC} from 'react';
-import {WithPagination} from "../hoc/WithPagination";
-import {carsService} from "../Services/carsService";
-import CarComponent from "../Componnts/CarComponent/CarComponent";
-import {ICarPaginatedModel} from "../Models/ICarPaginatedModel";
+import CarsPaginatedHocComponent from "../Componnts/CarsPaginatedHocComponent/CarsPaginatedHocComponent";
 
-const CarsPaginatedHocPage: FC<ICarPaginatedModel> = ({items}) => {
+const CarsPaginatedHocPage: FC = () => {
     return (
         <div>
-            {
-                items && items.map((car, index) => <CarComponent car={car} key={index}/>)
-            }
+            <CarsPaginatedHocComponent/>
         </div>
     );
 };
 
-export default WithPagination(CarsPaginatedHocPage, carsService.getAllCars);
+export default CarsPaginatedHocPage;
