@@ -7,6 +7,8 @@ const Header:FC = () => {
             <NavLink to={'/'}>Login</NavLink>
             <br/>
             <NavLink to={'/cars'}>Cars</NavLink>
+            <br/>
+            <NavLink to={'/carsPagin'}>CarsPagin</NavLink>
             <hr/>
         </div>
     );
