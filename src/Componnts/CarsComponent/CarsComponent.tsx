@@ -20,23 +20,13 @@ const CarsComponent: FC = () => {
                 setCarsResp(value)
         })
     }, [qwerty]);
-    const setterPage = (page: string) => {
-        switch (page) {
-            case 'prev':
-                setQwerty({...carsResp.prev});
-                break;
-            case 'next':
-                setQwerty({...carsResp.next});
-                break
-        }
-    }
 
     return (
         <div>
             {
                 carsResp.items.map((car, index) => <CarComponent car={car} key={index}/>)
             }
-            <ButtonsComponent setterPage={setterPage} prev={carsResp.prev} next={carsResp.next} key={1}/>
+            <ButtonsComponent setQwerty={setQwerty} prev={carsResp.prev} next={carsResp.next} key={1}/>
         </div>
     );
 };
