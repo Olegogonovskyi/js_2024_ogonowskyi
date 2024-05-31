@@ -8,17 +8,19 @@ import {tokenKey} from "./constants/constants";
 import {authService} from "./authService";
 
 export const carsService = {
-    getAllCars: async (): Promise<ICarPaginatedModel | null> => {
+    getAllCars: async (page: string): Promise<ICarPaginatedModel | null> => {
 
         try {
-            const response = await axiosInstance.get<ICarPaginatedModel>(carsUrls.allCars)
+            const response = await axiosInstance.get<ICarPaginatedModel>(carsUrls.allCars, {params: {page}})
+            console.log(response.data)
             return response.data
+
         } catch (e) {
             const axiosError = e as AxiosError
             if (axiosError?.response?.status === 401) {
                 const refrToken = HelperCarsToken<ITokenRefresh>(tokenKey).refresh
                 await authService.authRefr(refrToken)
-                return carsService.getAllCars()
+                return carsService.getAllCars(page)
             }
 
         }
