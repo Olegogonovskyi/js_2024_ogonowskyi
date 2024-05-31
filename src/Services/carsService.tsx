@@ -11,7 +11,7 @@ export const carsService = {
     getAllCars: async (page: string): Promise<ICarPaginatedModel | null> => {
 
         try {
-            const response = await axiosInstance.get<ICarPaginatedModel>(carsUrls.allCars, {params: {page}})
+            const response = await axiosInstance.get<ICarPaginatedModel>(carsUrls.allCars, {params: {page:page}})
             console.log(response.data)
             return response.data
 

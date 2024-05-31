@@ -1,23 +1,42 @@
 import React, {FC, useEffect, useState} from 'react';
-import {ICarWithAuthModel} from "../../Models/ICarWithAuthModel/ICarWithAuthModel";
 import {carsService} from "../../Services/carsService";
 import CarComponent from "../CarComponent/CarComponent";
-import {useParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
+import {ICarPaginatedModel} from "../../Models/ICarPaginatedModel";
+import ButtonsComponent from "../ButtonsComponent/ButtonsComponent";
 
 const CarsComponent: FC = () => {
-    const [cars, setCars] = useState<ICarWithAuthModel[]>([])
-    const[qwerty, setqwerty] = useParams() // todo 1. змінити юсстейт, задіяти юспарамс, додати компоненту з кнопками
+    const [carsResp, setCarsResp] = useState<ICarPaginatedModel>({
+        total_items: 0,
+        total_pages: 0,
+        prev: null,
+        next: null,
+        items: []
+    })
+    const [qwerty, setQwerty] = useSearchParams({page: '1'})
     useEffect(() => {
-        carsService.getAllCars('1').then(value => {
+        carsService.getAllCars(qwerty.get('page') || '1').then(value => {
             if (value)
-                setCars(value.items)
+                setCarsResp(value)
         })
-    }, []);
+    }, [qwerty]);
+    const setterPage = (page: string) => {
+        switch (page) {
+            case 'prev':
+                setQwerty({...carsResp.prev});
+                break;
+            case 'next':
+                setQwerty({...carsResp.next});
+                break
+        }
+    }
+
     return (
         <div>
             {
-                cars.map((car, index) => <CarComponent car={car} key={index}/>)
+                carsResp.items.map((car, index) => <CarComponent car={car} key={index}/>)
             }
+            <ButtonsComponent setterPage={setterPage}  key={1}/>
         </div>
     );
 };
