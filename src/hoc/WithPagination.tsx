@@ -1,7 +1,5 @@
 import React, {FC, useEffect, useState} from "react";
-import {AxiosResponse} from "axios";
 import {useSearchParams} from "react-router-dom";
-import ButtonsComponent from "../Componnts/ButtonsComponent/ButtonsComponent";
 
 export const WithPagination = (Component: FC<any>, axiosService: (page: string) => Promise<any>) => {
 
@@ -26,8 +24,18 @@ export const WithPagination = (Component: FC<any>, axiosService: (page: string) 
             }
         }
 
-        return <div><Component items={itemPaginationResp.items} {...props}/>
-            <ButtonsComponent setterPage={setterPage}/></div>
+        return <div>
+            <h1>hocPaginated</h1>
+            <Component items={itemPaginationResp.items} {...props}/>
+            <button onClick={() => {
+                setterPage('prev')
+            }}>prev Page
+            </button>
+            <button onClick={() => {
+                setterPage('next')
+            }}>next Page
+            </button>
+        </div>
     }
 
     return WithPaginationComponent
