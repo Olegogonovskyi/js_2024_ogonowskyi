@@ -1,9 +1,16 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
+import {Context} from "../../context/ContextProvider";
+import PostComponent from "../PostComponent/PostComponent";
 
 const PostsComponent: FC = () => {
+    const {postsStore: {
+        allPosts
+    }} = useContext(Context)
     return (
         <div>
-            PostsComponent
+            {
+                allPosts.map(post => <PostComponent key={post.id} post={post}/>)
+            }
         </div>
     );
 };

@@ -1,9 +1,17 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
+import {Context} from "../../context/ContextProvider";
+import CommentComponent from "../CommentComponent/CommentComponent";
 
 const CommentsComponent:FC = () => {
+
+    const {commetsStore: {
+        allComments
+    }} = useContext(Context)
     return (
         <div>
-            CommentsComponent
+            {
+                allComments.map(comment => <CommentComponent key={comment.id} comment = {comment}/> )
+            }
         </div>
     );
 };
