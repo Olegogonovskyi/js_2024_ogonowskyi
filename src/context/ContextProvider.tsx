@@ -5,10 +5,12 @@ import {ICommentModel} from "../models/ICommentModel";
 
 type StoreType = {
     usersStore: {
-        allusers: IuserModel[]
+        allusers: IuserModel[],
+        setFavoriteUser: (obj: IuserModel) => void
     },
     postsStore: {
-        allPosts: IPostModel[]
+        allPosts: IPostModel[],
+        setFavoritePost: (obj: IPostModel) => void
     },
     commetsStore: {
         allComments: ICommentModel[]
@@ -17,10 +19,12 @@ type StoreType = {
 
 const defoultValue: StoreType = {
     usersStore: {
-        allusers: []
+        allusers: [],
+        setFavoriteUser: () => {}
     },
     postsStore: {
-        allPosts: []
+        allPosts: [],
+        setFavoritePost: () => {}
     },
     commetsStore: {
         allComments: []
