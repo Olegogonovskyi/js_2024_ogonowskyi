@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import HeaderPage from "../HeaderPage/HeaderPage";
 import {Outlet} from "react-router-dom";
-import {Context, defoultValue} from "../../context/ContextProvider";
+import {Context} from "../../context/ContextProvider";
 import {IuserModel} from "../../models/IuserModel";
 import {IPostModel} from "../../models/IPostModel";
 import {ICommentModel} from "../../models/ICommentModel";
