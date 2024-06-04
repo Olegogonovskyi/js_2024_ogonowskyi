@@ -3,9 +3,11 @@ import {Context} from "../../context/ContextProvider";
 import PostComponent from "../PostComponent/PostComponent";
 
 const PostsComponent: FC = () => {
-    const {postsStore: {
-        allPosts
-    }} = useContext(Context)
+    const {
+        postsStore: {
+            allPosts
+        }
+    } = useContext(Context)
     return (
         <div>
             {

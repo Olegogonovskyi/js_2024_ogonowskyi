@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {usersWithPosts} from "../UsersPostaComponent/UsersPostaComponent";
 import PostComponent from "../PostComponent/PostComponent";
 
-const UserWithPostsArray: FC<{userWithPosts: usersWithPosts}> = ({userWithPosts}) => {
+const UserWithPostsArray: FC<{ userWithPosts: usersWithPosts }> = ({userWithPosts}) => {
     const {id, name, email, posts} = userWithPosts
     return (
         <div>

@@ -7,12 +7,10 @@ import {RouterProvider} from "react-router-dom";
 import {route} from "./routes/routes";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-
-<RouterProvider router={route}/>
-
+    <RouterProvider router={route}/>
 );
 
 // If you want to start measuring performance in your app, pass a function

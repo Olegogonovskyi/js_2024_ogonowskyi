@@ -2,6 +2,7 @@ import React, {FC, useContext, useEffect, useMemo, useState} from 'react';
 import {Context} from "../../context/ContextProvider";
 import {IPostModel} from "../../models/IPostModel";
 import {ICommentModel} from "../../models/ICommentModel";
+import PostWithComments from "../PostWithComments/PostWithComments";
 
 export type PostWithCommentsType = IPostModel & { comments: ICommentModel[] }
 
@@ -31,7 +32,8 @@ const PostComentsComponent: FC = () => {
     return (
         <div>
             {
-                postWithCommentsArray.map(postWithComments => <PostWithComments key={postWithComments.id} postWithComments={postWithComments}/>)
+                postWithCommentsArray.map(postWithComments => <PostWithComments key={postWithComments.id}
+                                                                                postWithComments={postWithComments}/>)
             }
         </div>
     );

@@ -4,7 +4,7 @@ import UsersPostaComponent from "../../Components/UsersPostaComponent/UsersPosta
 const UsersPostaPage: FC = () => {
     return (
         <div>
-           <UsersPostaComponent/>
+            <UsersPostaComponent/>
         </div>
     );
 };

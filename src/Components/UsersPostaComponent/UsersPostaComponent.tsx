@@ -19,7 +19,7 @@ const UsersPostaComponent: FC = () => {
     }, [allusers, allPosts])
     useEffect(() => {
         setusersWithPostsArray(UasrsWithPosts)
-    }, [usersWithPostsArray]);
+    }, [UasrsWithPosts]);
     return (
         <div>
             {

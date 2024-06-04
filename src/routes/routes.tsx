@@ -8,7 +8,8 @@ import CommemtsPage from "../Pages/CommemtsPage/CommemtsPage";
 import PostComentsPage from "../Pages/PostComentsPage/PostComentsPage";
 
 export const route = createBrowserRouter([
-    {path: '/', element: <MainLayout/>, children: [
+    {
+        path: '/', element: <MainLayout/>, children: [
             {
                 path: urls.users, element: <UsersPage/>
             },
@@ -24,5 +25,6 @@ export const route = createBrowserRouter([
             {
                 path: urls.postsComments, element: <PostComentsPage/>
             }
-        ]}
+        ]
+    }
 ])

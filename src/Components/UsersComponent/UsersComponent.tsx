@@ -2,7 +2,7 @@ import React, {FC, useContext} from 'react';
 import {Context} from "../../context/ContextProvider";
 import UserComponent from "../UserComponent/UserComponent";
 
-const UsersComponent:FC = () => {
+const UsersComponent: FC = () => {
     const {usersStore: {allusers}} = useContext(Context)
     return (
         <div>
