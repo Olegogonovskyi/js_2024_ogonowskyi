@@ -1,13 +1,13 @@
-import React, {FC, useContext} from 'react';
-import {Context} from "../../context/ContextProvider";
+import React, {FC} from 'react';
+import {useStore} from "../../context/Store";
 import UserComponent from "../UserComponent/UserComponent";
 
 const UsersComponent: FC = () => {
-    const {usersStore: {allusers}} = useContext(Context)
+    const {usersStore: {allUsers}} = useStore()
     return (
         <div>
             {
-                allusers.map(user => <UserComponent key={user.id} user={user}/>)
+                allUsers.map(user => <UserComponent key={user.id} user={user}/>)
             }
         </div>
     );

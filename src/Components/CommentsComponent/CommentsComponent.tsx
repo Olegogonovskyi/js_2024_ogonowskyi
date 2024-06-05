@@ -1,5 +1,5 @@
-import React, {FC, useContext} from 'react';
-import {Context} from "../../context/ContextProvider";
+import React, {FC} from 'react';
+import {useStore} from "../../context/Store";
 import CommentComponent from "../CommentComponent/CommentComponent";
 
 const CommentsComponent: FC = () => {
@@ -8,7 +8,7 @@ const CommentsComponent: FC = () => {
         commetsStore: {
             allComments
         }
-    } = useContext(Context)
+    } = useStore()
     return (
         <div>
             {

@@ -1,9 +1,9 @@
-import React, {FC, useContext} from 'react';
+import React, {FC} from 'react';
 import {IPostModel} from "../../models/IPostModel";
-import {Context} from "../../context/ContextProvider";
+import {useStore} from "../../context/Store";
 
 const PostComponent: FC<{ post: IPostModel }> = ({post}) => {
-    const {postsStore: {setFavoritePost}} = useContext(Context)
+    const {postsStore: {setFavoritePost}} = useStore()
     return (
         <div>
             <h2>{post.id}: {post.title} from {post.userId}</h2>

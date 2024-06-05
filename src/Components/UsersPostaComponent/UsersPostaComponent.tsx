@@ -1,5 +1,5 @@
-import React, {FC, useContext, useEffect, useMemo, useState} from 'react';
-import {Context} from "../../context/ContextProvider";
+import React, {FC, useEffect, useMemo, useState} from 'react';
+import {useStore} from "../../context/Store";
 import {IuserModel} from "../../models/IuserModel";
 import {IPostModel} from "../../models/IPostModel";
 import UserWithPostsArray from "../userWithPostsArray/UserWithPostsArray";
@@ -7,16 +7,16 @@ import UserWithPostsArray from "../userWithPostsArray/UserWithPostsArray";
 export type usersWithPosts = IuserModel & { posts: IPostModel[] }
 
 const UsersPostaComponent: FC = () => {
-    const {usersStore: {allusers}, postsStore: {allPosts}} = useContext(Context)
+    const {usersStore: {allUsers}, postsStore: {allPosts}} = useStore()
     const [usersWithPostsArray, setusersWithPostsArray] = useState<usersWithPosts[]>([])
 
     const UasrsWithPosts = useMemo(() => {
         return () => {
-            return allusers.map(user => {
+            return allUsers.map(user => {
                 return {...user, posts: allPosts.filter(post => user.id === post.userId)}
             })
         }
-    }, [allusers, allPosts])
+    }, [allUsers, allPosts])
     useEffect(() => {
         setusersWithPostsArray(UasrsWithPosts)
     }, [UasrsWithPosts]);

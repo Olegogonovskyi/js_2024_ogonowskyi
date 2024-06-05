@@ -1,5 +1,5 @@
-import React, {FC, useContext} from 'react';
-import {Context} from "../../context/ContextProvider";
+import React, {FC} from 'react';
+import {useStore} from "../../context/Store";
 import PostComponent from "../PostComponent/PostComponent";
 
 const PostsComponent: FC = () => {
@@ -7,7 +7,7 @@ const PostsComponent: FC = () => {
         postsStore: {
             allPosts
         }
-    } = useContext(Context)
+    } = useStore()
     return (
         <div>
             {
