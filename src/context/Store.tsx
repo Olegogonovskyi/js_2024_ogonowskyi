@@ -1,4 +1,3 @@
-
 import {IuserModel} from "../models/IuserModel";
 import {IPostModel} from "../models/IPostModel";
 import {ICommentModel} from "../models/ICommentModel";
@@ -40,7 +39,7 @@ export const useStore = create<StoreType>(setState => ({
         setFavoritePost: (obj: IPostModel) => setState(state=> ({...state, postsStore: {...state.postsStore, favoritePost:obj}}))},
     commentsStore: {
         allComments: [],
-        loadComments: (comments: ICommentModel[]) => setState(state=> ({...state, commetsStore: {...state.commentsStore, allComments: comments}}))
+        loadComments: (comments: ICommentModel[]) => setState(state=> ({...state, commentsStore: {...state.commentsStore, allComments: comments}}))
     }
 }));
 
