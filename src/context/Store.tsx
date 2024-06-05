@@ -27,30 +27,18 @@ type StoreType = {
 export const useStore = create<StoreType>()(setState => ({
     usersStore: {
         allUsers: [],
-        loadUsers: (users: IuserModel[]) => {
-            return setState(state => {return {...state, usersStore: {...state.usersStore, allUsers: users}} //todo спробувати без першого return
-            })
-        },
+        loadUsers: (users: IuserModel[]) => {setState(state=> ({...state, usersStore: {...state.usersStore, allUsers: users}}))},
         favoriteUser: null,
-        setFavoriteUser: (obj: IuserModel) => {
-            return setState(state => {return {...state, usersStore: {...state.usersStore, favoriteUser: obj}}})
-        }
+        setFavoriteUser: (obj: IuserModel) => {setState(state=> ({...state, usersStore: {...state.usersStore, favoriteUser: obj}}))}
     },
     postsStore: {
         allPosts: [],
-        loadPosts: (posts: IPostModel[]) => {
-            return setState(state => {return {...state,postsStore: {...state.postsStore, allPosts: posts}}})
-        },
+        loadPosts: (posts: IPostModel[]) => {setState(state=> ({...state,postsStore: {...state.postsStore, allPosts: posts}}))},
         favoritePost: null,
-        setFavoritePost: (obj: IPostModel) => {
-            return setState(state => {return{...state, postsStore: {...state.postsStore, favoritePost:obj}}})
-        }
-    },
+        setFavoritePost: (obj: IPostModel) => {setState(state=> ({...state, postsStore: {...state.postsStore, favoritePost:obj}}))}},
     commetsStore: {
         allComments: [],
-        loadComments: (comments: ICommentModel[]) => {
-            return setState(state => {return{...state, commetsStore: {...state.commetsStore, allComments: comments}}})
-        }
+        loadComments: (comments: ICommentModel[]) => {setState(state=> ({...state, commetsStore: {...state.commetsStore, allComments: comments}}))}
     }
 }));
 
