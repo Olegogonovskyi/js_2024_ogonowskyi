@@ -13,7 +13,7 @@ const PostComentsComponent: FC = () => {
     const {
         postsStore: {
             allPosts
-        }, commetsStore: {
+        }, commentsStore: {
             allComments
         }
     } = useStore()

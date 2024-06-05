@@ -9,6 +9,7 @@ type StoreType = {
         allUsers: IuserModel[],
         loadUsers: (users: IuserModel[]) => void,
         setFavoriteUser: (obj: IuserModel) => void,
+        delFavoriteUser: () => void,
         favoriteUser: IuserModel | null
     },
     postsStore: {
@@ -17,28 +18,29 @@ type StoreType = {
         favoritePost: IPostModel | null
         setFavoritePost: (obj: IPostModel) => void
     },
-    commetsStore: {
+    commentsStore: {
         allComments: ICommentModel[],
         loadComments: (comments:ICommentModel[] ) => void
     }
 
 }
 
-export const useStore = create<StoreType>()(setState => ({
+export const useStore = create<StoreType>(setState => ({
     usersStore: {
         allUsers: [],
-        loadUsers: (users: IuserModel[]) => {setState(state=> ({...state, usersStore: {...state.usersStore, allUsers: users}}))},
+        loadUsers: (users: IuserModel[]) => setState(state=> ({...state, usersStore: {...state.usersStore, allUsers: users}})),
         favoriteUser: null,
-        setFavoriteUser: (obj: IuserModel) => {setState(state=> ({...state, usersStore: {...state.usersStore, favoriteUser: obj}}))}
+        delFavoriteUser: () => setState(state => ({...state,usersStore: {...state.usersStore, favoriteUser: null}})),
+        setFavoriteUser: (obj: IuserModel) => setState(state=> ({...state, usersStore: {...state.usersStore, favoriteUser: obj}}))
     },
     postsStore: {
         allPosts: [],
-        loadPosts: (posts: IPostModel[]) => {setState(state=> ({...state,postsStore: {...state.postsStore, allPosts: posts}}))},
+        loadPosts: (posts: IPostModel[]) => setState(state=> ({...state,postsStore: {...state.postsStore, allPosts: posts}})),
         favoritePost: null,
-        setFavoritePost: (obj: IPostModel) => {setState(state=> ({...state, postsStore: {...state.postsStore, favoritePost:obj}}))}},
-    commetsStore: {
+        setFavoritePost: (obj: IPostModel) => setState(state=> ({...state, postsStore: {...state.postsStore, favoritePost:obj}}))},
+    commentsStore: {
         allComments: [],
-        loadComments: (comments: ICommentModel[]) => {setState(state=> ({...state, commetsStore: {...state.commetsStore, allComments: comments}}))}
+        loadComments: (comments: ICommentModel[]) => setState(state=> ({...state, commetsStore: {...state.commentsStore, allComments: comments}}))
     }
 }));
 

@@ -5,7 +5,7 @@ import CommentComponent from "../CommentComponent/CommentComponent";
 const CommentsComponent: FC = () => {
 
     const {
-        commetsStore: {
+        commentsStore: {
             allComments
         }
     } = useStore()

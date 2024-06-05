@@ -8,11 +8,11 @@ import {CommentsApiService} from "../../services/comments.api.service";
 
 const MainLayout: FC = () => {
 
-    const {usersStore, postsStore, commetsStore} = useStore()
+    const {usersStore, postsStore, commentsStore} = useStore()
     useEffect(() => {
         UsersApiService.getAllUsers().then(value => usersStore.loadUsers(value.data))
         PostsApiService.getAllPosts().then(value => postsStore.loadPosts(value.data))
-        CommentsApiService.getAllPosts().then(value => commetsStore.loadComments(value.data))
+        CommentsApiService.getAllPosts().then(value => commentsStore.loadComments(value.data))
 
     }, []);
 
@@ -26,6 +26,7 @@ const MainLayout: FC = () => {
 
             <hr/>
             {usersStore.favoriteUser && <h1>{usersStore.favoriteUser.name}</h1>}
+            {usersStore.favoriteUser && <button onClick={usersStore.delFavoriteUser}>del</button>}
             {postsStore.favoritePost && <h1>{postsStore.favoritePost.title}</h1>}
             <hr/>
 
