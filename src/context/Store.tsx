@@ -19,7 +19,7 @@ type StoreType = {
     },
     commentsStore: {
         allComments: ICommentModel[],
-        loadComments: (comments:ICommentModel[] ) => void
+        loadComments: (comments:ICommentModel[] ) => void;
     }
 
 }
