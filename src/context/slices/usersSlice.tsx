@@ -2,24 +2,26 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IuserModel} from "../../models/IuserModel";
 
 type usersState = {
-    users: IuserModel[]
+    users: IuserModel[],
+    favoriteUser: IuserModel | null
 }
 
 const initialState: usersState = {
-    users: []
+    users: [],
+    favoriteUser: null
 }
 
 const usersSlice = createSlice({
     name: 'usersSlice',
     initialState,
     reducers: {
-        getAllUsers: (state, action: PayloadAction<IuserModel[]>) => {
-            state.users = action.payload
-        }
+        getAllUsers: (state, action: PayloadAction<IuserModel[]>) => {state.users = action.payload},
+        setfavorite: (state, action: PayloadAction<IuserModel | null>) => {state.favoriteUser = action.payload}
     }
 })
 
-const {reducer: usersReducer, actions} =  usersSlice
+
+const {reducer: usersReducer, actions} = usersSlice
 const usersActions = {
     ...actions
 }

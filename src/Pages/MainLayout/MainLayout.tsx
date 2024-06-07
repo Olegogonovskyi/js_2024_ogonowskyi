@@ -4,13 +4,14 @@ import {Outlet} from "react-router-dom";
 import {UsersApiService} from "../../services/users.api.service";
 import {PostsApiService} from "../../services/posts.api.service";
 import {CommentsApiService} from "../../services/comments.api.service";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {usersActions} from "../../context/slices/usersSlice";
 import {postsActions} from "../../context/slices/postsSlice";
 import {commentsActions} from "../../context/slices/commentsSlice";
+import {RootState} from "../../context/Store";
 
 const MainLayout: FC = () => {
-const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
@@ -20,17 +21,19 @@ const dispatch = useDispatch()
 
     }, [dispatch]);
 
+    const {favoriteUser} = useSelector((state: RootState) => state.users)
+    const {favoritePost} = useSelector((state: RootState) => state.posts)
 
     return (
         <div>
             <HeaderPage/>
-                <Outlet/>
+            <Outlet/>
 
-            {/*<hr/>*/}
-            {/*{usersStore.favoriteUser && <h1>{usersStore.favoriteUser.name}</h1>}*/}
-            {/*{usersStore.favoriteUser && <button onClick={usersStore.delFavoriteUser}>del</button>}*/}
-            {/*{postsStore.favoritePost && <h1>{postsStore.favoritePost.title}</h1>}*/}
-            {/*<hr/>*/}
+            <hr/>
+            {favoriteUser && <h1>{favoriteUser.name}</h1>}
+            {favoriteUser && <button onClick={()=> {dispatch(usersActions.setfavorite(null))}}>del user</button>}
+            {favoritePost && <h1>{ favoritePost.title}</h1>}
+            <hr/>
 
 
         </div>

@@ -3,20 +3,21 @@ import {IPostModel} from "../../models/IPostModel";
 
 
 type postsState = {
-    posts: IPostModel[]
+    posts: IPostModel[],
+    favoritePost: IPostModel | null
 }
 
 const initialState: postsState = {
-    posts: []
+    posts: [],
+    favoritePost: null
 }
 
 const postsSlice = createSlice({
     name: 'postsSlice',
     initialState,
     reducers: {
-        getAllPosts: (state, action: PayloadAction<IPostModel[]>) => {
-           state.posts = action.payload
-        }
+        getAllPosts: (state, action: PayloadAction<IPostModel[]>) => {state.posts = action.payload},
+        setFavoritePost: (state, action: PayloadAction<IPostModel | null>) => {state.favoritePost = action.payload}
     }
 })
 
