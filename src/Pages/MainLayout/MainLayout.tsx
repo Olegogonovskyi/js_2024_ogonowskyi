@@ -2,15 +2,16 @@ import React, {FC, useEffect} from 'react';
 import HeaderPage from "../HeaderPage/HeaderPage";
 import {Outlet} from "react-router-dom";
 import {useStore} from "../../context/Store";
-import {UsersApiService} from "../../services/users.api.service";
 import {PostsApiService} from "../../services/posts.api.service";
 import {CommentsApiService} from "../../services/comments.api.service";
+import {Provider} from "react-redux";
+import rtkStore from "../../context/rtkStore";
 
 const MainLayout: FC = () => {
 
     const {usersStore, postsStore, commentsStore} = useStore()
     useEffect(() => {
-        UsersApiService.getAllUsers().then(value => usersStore.loadUsers(value.data))
+
         PostsApiService.getAllPosts().then(value => postsStore.loadPosts(value.data))
         CommentsApiService.getAllPosts().then(value => commentsStore.loadComments(value.data))
 
@@ -21,7 +22,9 @@ const MainLayout: FC = () => {
         <div>
             <HeaderPage/>
 
-            <Outlet/>
+            <Provider store={rtkStore}>
+                <Outlet/>
+            </Provider>
 
 
             <hr/>
