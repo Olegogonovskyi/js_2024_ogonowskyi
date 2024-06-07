@@ -7,13 +7,13 @@ import ComponentOne from "./components/СomponentOne";
 
 
 const App: FC = () => {
-    const counter = useSelector((state: RootState) => state.countOne)
+    const {count} = useSelector((state: RootState) => state.countOne)
     return (
-        <>
-            {counter}
+        <div>
+            {count}
             <ComponentOne/>
             <ComponentTwo/>
-        </>
+        </div>
     );
 };
 

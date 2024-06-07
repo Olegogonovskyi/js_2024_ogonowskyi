@@ -1,3 +1,3 @@
 export interface ICalcModel {
-    value: number
+    count: number
 }

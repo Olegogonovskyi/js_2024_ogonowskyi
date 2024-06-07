@@ -2,16 +2,22 @@ import {createSlice} from "@reduxjs/toolkit";
 import {ICalcModel} from "../../models/ICalcModel";
 
 const initialState: ICalcModel = {
-    value: 0
+    count: 0
 }
 
 const calcOneSlice = createSlice({
     name: 'calcOneSlice',
     initialState,
     reducers: {
-        inc: state => {state.value +=1}
-        dec: state => {state.value -=1}
-        reset: state => {state.value =0}
+        inc: state => {
+            state.count += 1
+        },
+        dec: state => {
+            state.count -= 1
+        },
+        reset: state => {
+            state.count = 0
+        }
     }
 })
 
