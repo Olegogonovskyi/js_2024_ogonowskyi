@@ -1,18 +1,16 @@
 import React, {FC} from 'react';
-import {useStore} from "../../context/Store";
+
 import CommentComponent from "../CommentComponent/CommentComponent";
+import {useSelector} from "react-redux";
+import {RootState} from "../../context/Store";
 
 const CommentsComponent: FC = () => {
 
-    const {
-        commentsStore: {
-            allComments
-        }
-    } = useStore()
+    const {comments} = useSelector((state: RootState) => state.comments)
     return (
         <div>
             {
-                allComments.map(comment => <CommentComponent key={comment.id} comment={comment}/>)
+                comments.map(comment => <CommentComponent key={comment.id} comment={comment}/>)
             }
         </div>
     );

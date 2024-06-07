@@ -1,17 +1,14 @@
 import React, {FC} from 'react';
-import {useStore} from "../../context/Store";
+import {RootState} from "../../context/Store";
 import PostComponent from "../PostComponent/PostComponent";
+import {useSelector} from "react-redux";
 
 const PostsComponent: FC = () => {
-    const {
-        postsStore: {
-            allPosts
-        }
-    } = useStore()
+    const {posts} = useSelector((state: RootState) => state.posts)
     return (
         <div>
             {
-                allPosts.map(post => <PostComponent key={post.id} post={post}/>)
+                posts.map(post => <PostComponent key={post.id} post={post}/>)
             }
         </div>
     );

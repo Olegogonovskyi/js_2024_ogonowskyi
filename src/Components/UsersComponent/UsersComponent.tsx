@@ -1,13 +1,14 @@
 import React, {FC} from 'react';
-import {useStore} from "../../context/Store";
+import {RootState} from "../../context/Store";
 import UserComponent from "../UserComponent/UserComponent";
+import {useSelector} from "react-redux";
 
 const UsersComponent: FC = () => {
-    const {usersStore: {allUsers}} = useStore()
+    const {users} = useSelector((state: RootState) => state.users)
     return (
         <div>
             {
-                allUsers.map(user => <UserComponent key={user.id} user={user}/>)
+                users.map(user => <UserComponent key={user.id} user={user}/>)
             }
         </div>
     );
