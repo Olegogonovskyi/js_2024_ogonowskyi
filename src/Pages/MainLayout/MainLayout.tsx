@@ -15,9 +15,9 @@ const MainLayout: FC = () => {
 
 
     useEffect(() => {
-        UsersApiService.getAllUsers().then(value => dispatch(usersActions.getAllUsers(value.data)))
-        PostsApiService.getAllPosts().then(value => dispatch(postsActions.getAllPosts(value.data)))
-        CommentsApiService.getAllPosts().then(value => dispatch(commentsActions.getAllcomments(value.data)))
+        UsersApiService.getAllUsers().then(value => dispatch(usersActions.getAllUsers(value)))
+        PostsApiService.getAllPosts().then(value => dispatch(postsActions.getAllPosts(value)))
+        CommentsApiService.getAllPosts().then(value => dispatch(commentsActions.getAllcomments(value)))
 
     }, [dispatch]);
 

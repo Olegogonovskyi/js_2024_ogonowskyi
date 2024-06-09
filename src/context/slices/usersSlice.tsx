@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IuserModel} from "../../models/IuserModel";
 
-type usersState = {
+export type usersState = {
     users: IuserModel[],
     favoriteUser: IuserModel | null
 }
