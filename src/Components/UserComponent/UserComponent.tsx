@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import {IuserModel} from "../../models/IuserModel";
-import {useDispatch} from "react-redux";
 import {usersActions} from "../../context/slices/usersSlice";
+import {useAppDispatch} from "../../context/Store";
 
 
 const UserComponent: FC<{ user: IuserModel }> = ({user}) => {
-const dispatch = useDispatch()
+const dispatch = useAppDispatch()
     return (
         <div>
             <h1>{user.id}: {user.name} - {user.email}</h1>
