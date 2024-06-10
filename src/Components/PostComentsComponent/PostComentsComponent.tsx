@@ -1,10 +1,8 @@
 import React, {FC, useEffect, useMemo, useState} from 'react';
-
 import {IPostModel} from "../../models/IPostModel";
 import {ICommentModel} from "../../models/ICommentModel";
 import PostWithComments from "../PostWithComments/PostWithComments";
-import {useSelector} from "react-redux";
-import {RootState} from "../../context/Store";
+import {useAppSelector} from "../../context/Store";
 
 
 export type PostWithCommentsType = IPostModel & { comments: ICommentModel[] }
@@ -12,8 +10,8 @@ export type PostWithCommentsType = IPostModel & { comments: ICommentModel[] }
 const PostComentsComponent: FC = () => {
 
     const [postWithCommentsArray, setPostWithCommentsArray] = useState<PostWithCommentsType[]>([])
-   const {posts} = useSelector((state: RootState) => state.posts)
-    const {comments} = useSelector((state: RootState) => state.comments)
+    const {posts} = useAppSelector(state => state.posts)
+    const {comments} = useAppSelector(state => state.comments)
 
     const postsWithComments = useMemo(() => {
         return () => {

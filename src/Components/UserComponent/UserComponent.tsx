@@ -5,11 +5,14 @@ import {useAppDispatch} from "../../context/Store";
 
 
 const UserComponent: FC<{ user: IuserModel }> = ({user}) => {
-const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
     return (
         <div>
             <h1>{user.id}: {user.name} - {user.email}</h1>
-            <button onClick={()=> {dispatch(usersActions.setfavorite(user))}}>add to favorite</button>
+            <button onClick={() => {
+                dispatch(usersActions.setfavorite(user))
+            }}>add to favorite
+            </button>
 
 
         </div>

@@ -1,12 +1,10 @@
 import React, {FC} from 'react';
-
 import CommentComponent from "../CommentComponent/CommentComponent";
-import {useSelector} from "react-redux";
-import {RootState} from "../../context/Store";
+import {useAppSelector} from "../../context/Store";
 
 const CommentsComponent: FC = () => {
 
-    const {comments} = useSelector((state: RootState) => state.comments)
+    const {comments} = useAppSelector(state => state.comments)
     return (
         <div>
             {

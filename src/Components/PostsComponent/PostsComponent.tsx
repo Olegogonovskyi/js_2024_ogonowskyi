@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import {RootState} from "../../context/Store";
+import {useAppSelector} from "../../context/Store";
 import PostComponent from "../PostComponent/PostComponent";
-import {useSelector} from "react-redux";
+
 
 const PostsComponent: FC = () => {
-    const {posts} = useSelector((state: RootState) => state.posts)
+    const {posts} = useAppSelector(state => state.posts)
     return (
         <div>
             {

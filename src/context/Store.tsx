@@ -3,7 +3,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import {usersReducer} from "./slices/usersSlice";
 import {postsReducer} from "./slices/postsSlice";
 import {commentsReducer} from "./slices/commentsSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 export const store = configureStore({
     reducer: {
@@ -13,11 +13,11 @@ export const store = configureStore({
     }
 })
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-const useAppDispatch = useDispatch.withTypes<AppDispatch>();
-// const useAppSlector = useSelector.withTypes<RootState>
+type RootState = ReturnType<typeof store.getState>;
+type AppDispatch = typeof store.dispatch;
+const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+const useAppSelector = useSelector.withTypes<RootState>();
 
 export {
-    useAppDispatch
+    useAppDispatch, useAppSelector
 }

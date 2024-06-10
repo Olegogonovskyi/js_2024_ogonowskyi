@@ -4,14 +4,14 @@ import {Outlet} from "react-router-dom";
 import {UsersApiService} from "../../services/users.api.service";
 import {PostsApiService} from "../../services/posts.api.service";
 import {CommentsApiService} from "../../services/comments.api.service";
-import {useDispatch, useSelector} from "react-redux";
 import {usersActions} from "../../context/slices/usersSlice";
 import {postsActions} from "../../context/slices/postsSlice";
 import {commentsActions} from "../../context/slices/commentsSlice";
-import {RootState} from "../../context/Store";
+import {useAppDispatch, useAppSelector} from "../../context/Store";
+
 
 const MainLayout: FC = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
 
     useEffect(() => {
@@ -21,8 +21,8 @@ const MainLayout: FC = () => {
 
     }, [dispatch]);
 
-    const {favoriteUser} = useSelector((state: RootState) => state.users)
-    const {favoritePost} = useSelector((state: RootState) => state.posts)
+    const {favoriteUser} = useAppSelector(state => state.users)
+    const {favoritePost} = useAppSelector(state => state.posts)
 
     return (
         <div>

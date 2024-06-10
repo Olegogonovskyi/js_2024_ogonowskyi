@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import {RootState} from "../../context/Store";
+import {useAppSelector} from "../../context/Store";
 import UserComponent from "../UserComponent/UserComponent";
-import {useSelector} from "react-redux";
+
 
 const UsersComponent: FC = () => {
-    const {users} = useSelector((state: RootState) => state.users)
+    const {users} = useAppSelector(state => state.users)
     return (
         <div>
             {
