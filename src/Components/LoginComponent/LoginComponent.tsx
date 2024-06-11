@@ -11,8 +11,8 @@ const LoginComponent: FC = () => {
         }
     })
 
-    const setLoginData = (loginData: ITokenObtainPair) => {
-        authService.authLogin(loginData)
+    const setLoginData = async (loginData: ITokenObtainPair) => {
+        await authService.authLogin(loginData)
     }
 
 
