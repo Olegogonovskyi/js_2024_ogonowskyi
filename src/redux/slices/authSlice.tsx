@@ -2,20 +2,24 @@ import {createAsyncThunk, createSlice, isFulfilled} from "@reduxjs/toolkit";
 import {ITokenObtainPair} from "../../Models/ITokenObtainPair";
 import {authService} from "../../services/auth.service";
 import {AxiosError} from "axios";
+import {IUserResponse} from "../../Models/IUserResponse";
 
 type authSliceType = {
-    loginError: string
+    loginError: string,
+    currentUser: IUserResponse | null
 }
 
 const initialState: authSliceType = {
-    loginError: ''
+    loginError: '',
+    currentUser: null
 }
 
-const isLogined = createAsyncThunk<void, {user: ITokenObtainPair}>(
+const isLogined = createAsyncThunk<IUserResponse, {user: ITokenObtainPair}>(
     'authSlice/isLogined',
     async ({user}, {rejectWithValue}) => {
         try {
-            await authService.authLogin(user)
+            const currentUserResp = await authService.authLogin(user)
+            return currentUserResp
         } catch (e) {
             const ResponseError = e as AxiosError
             return rejectWithValue(ResponseError?.response?.data)
@@ -28,6 +32,7 @@ const authSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => builder
+        .addCase(isLogined.fulfilled, (state, action) => {state.currentUser = action.payload})
         .addCase(isLogined.rejected, state => {state.loginError = 'Wrong username or password'})
         .addMatcher(isFulfilled(), state => {state.loginError = ''})
 })
