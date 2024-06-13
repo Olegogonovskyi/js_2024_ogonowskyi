@@ -44,14 +44,15 @@ const userByIdLoading = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.response?.data)
         }
     }
-
 )
 
 const usersSlice = createSlice({
     name: 'usersSlice',
     initialState,
     reducers: {
-        changeLoadigState: (state, action: PayloadAction<boolean>) => {state.statusLoading = action.payload}
+        changeLoadigState: (state, action: PayloadAction<boolean>) => {
+            state.statusLoading = action.payload
+        }
     },
     extraReducers: builder => builder
         .addCase(usersLoading.fulfilled, (state, action: PayloadAction<IUserModel[]>) => {

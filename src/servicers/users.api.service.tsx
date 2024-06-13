@@ -7,7 +7,7 @@ export const usersApiService = {
         const response = await axiosApiService.get<IUserModel[]>(urls.usersUrls.users)
         return response.data
     },
-    getById: async (id: string | undefined) : Promise<IUserModel | undefined> => {
+    getById: async (id: string | undefined): Promise<IUserModel | undefined> => {
         if (id) {
             const response = await axiosApiService.get<IUserModel>(urls.usersUrls.userById(id))
             return response.data

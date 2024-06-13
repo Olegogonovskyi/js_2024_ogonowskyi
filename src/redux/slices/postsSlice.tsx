@@ -10,7 +10,7 @@ interface postsSliceModel {
     isLoaded: boolean
 }
 
-const  initialState: postsSliceModel = {
+const initialState: postsSliceModel = {
     posts: [],
     favoritePost: undefined,
     isLoaded: false
@@ -34,7 +34,7 @@ const loadFavoriteUser = createAsyncThunk(
     'postsSlice/loadFavoriteUser',
     async (id: string | undefined, thunkAPI) => {
         try {
-            if(id) {
+            if (id) {
                 const favoritePost = await postApiService.getById(id)
                 return thunkAPI.fulfillWithValue(favoritePost)
             }
@@ -50,7 +50,9 @@ const postsSlice = createSlice({
     name: 'postsSlice',
     initialState,
     reducers: {
-        isLoadetStatusChanger: (state, action: PayloadAction<boolean>) => {state.isLoaded = action.payload}
+        isLoadetStatusChanger: (state, action: PayloadAction<boolean>) => {
+            state.isLoaded = action.payload
+        }
     },
     extraReducers: builder => builder
         .addCase(loadPosts.fulfilled, (state, action) => {
