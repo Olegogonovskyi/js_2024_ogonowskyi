@@ -4,6 +4,7 @@ import {useAppDispatch} from "../../redux/store";
 import {userActions} from "../../redux/slices/usersSlice";
 
 const UsersPage: FC = () => {
+
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(userActions.usersLoading())

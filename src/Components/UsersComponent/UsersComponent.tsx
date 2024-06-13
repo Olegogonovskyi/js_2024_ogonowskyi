@@ -4,11 +4,13 @@ import UserComponent from "../UserComponent/UserComponent";
 
 const UsersComponent: FC = () => {
 
-    const {users} = useAppSelector(state => state.userReducer)
+    let {users, statusLoading} = useAppSelector(state => state.userReducer)
+
     return (
         <div>
             {
-                users.map(user => <UserComponent user={user} key={user.id}/>)
+                statusLoading ? users.map(user => <UserComponent user={user} key={user.id}/>) :
+                    <h1>Looooaaadddiiing</h1>
             }
         </div>
     );

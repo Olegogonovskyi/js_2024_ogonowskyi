@@ -7,7 +7,7 @@ const urls = {
     },
     postUrls: {
         posts: '/posts',
-        postById: (id: string) => urls.postUrls.posts + '/' + id
+        postById: (id: string | undefined) => urls.postUrls.posts + '/' + id
     }
 }
 

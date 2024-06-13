@@ -5,20 +5,23 @@ import {AxiosError} from "axios";
 
 interface IUsersSlice {
     users: IUserModel[],
-    favoriteUser: IUserModel | undefined
+    favoriteUser: IUserModel | undefined,
+    statusLoading: boolean
 }
 
 const initialState: IUsersSlice = {
     users: [],
-    favoriteUser: undefined
+    favoriteUser: undefined,
+    statusLoading: false
 }
 
 
 const usersLoading = createAsyncThunk(
     'usersSlice/usersLoading',
-    async (arg, thunkAPI) => {
+    async (_, thunkAPI) => {
         try {
             const users = await usersApiService.getAll()
+            thunkAPI.dispatch(userActions.changeLoadigState(true))
             return thunkAPI.fulfillWithValue(users)
         } catch (e) {
             const error = e as AxiosError
@@ -47,7 +50,9 @@ const userByIdLoading = createAsyncThunk(
 const usersSlice = createSlice({
     name: 'usersSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        changeLoadigState: (state, action: PayloadAction<boolean>) => {state.statusLoading = action.payload}
+    },
     extraReducers: builder => builder
         .addCase(usersLoading.fulfilled, (state, action: PayloadAction<IUserModel[]>) => {
             state.users = action.payload
